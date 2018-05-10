@@ -1,0 +1,26 @@
+{
+  "name": "yoshino-cli",
+  "version": "0.0.1",
+  "description": "yoshino-cli, help developer generate themes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yoshino-UI/yoshino-cli.git"
+  },
+  "keywords": [
+    "yoshino",
+    "themes",
+    "yoshino-cli",
+    "react",
+    "ui"
+  ],
+  "author": "ShanaMaid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yoshino-UI/yoshino-cli/issues"
+  },
+  "homepage": "https://github.com/Yoshino-UI/yoshino-cli#readme"
+}
