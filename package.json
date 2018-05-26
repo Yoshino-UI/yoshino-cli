@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/Yoshino-UI/yoshino-cli.git"
   },
+  "bin": {
+    "yoshino": "./index.js"
+  },
   "keywords": [
     "yoshino",
     "themes",
@@ -22,5 +25,13 @@
   "bugs": {
     "url": "https://github.com/Yoshino-UI/yoshino-cli/issues"
   },
-  "homepage": "https://github.com/Yoshino-UI/yoshino-cli#readme"
+  "homepage": "https://github.com/Yoshino-UI/yoshino-cli#readme",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "eslint": "^4.19.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
 }
