@@ -24,7 +24,9 @@
   "homepage": "https://github.com/Yoshino-UI/yoshino-cli#readme",
   "dependencies": {
     "chalk": "^2.4.1",
-    "commander": "^2.15.1"
+    "commander": "^2.15.1",
+    "consola": "^1.4.1",
+    "draftlog": "^1.0.12"
   },
   "bin": {
     "yoshino": "./bin/yoshino.js"

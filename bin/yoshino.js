@@ -7,12 +7,17 @@ const package = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../package.j
 program
   .usage(`\r\n  ${package.description}\r\n  GithubID: ${package.author}\r\n  Repository: ${package.repository.url}`)
   .version(package.version)
-  .option('-v, --version', 'show version')
 
 program
-  .command('clone')
+  .command('init')
   .action(() => {
     require(path.resolve(__dirname, '../scripts/clone.js'))();
+  })
+
+program
+  .command('update')
+  .action(() => {
+    require(path.resolve(__dirname, '../scripts/update.js'))();
   })
 
 program.parse(process.argv);
