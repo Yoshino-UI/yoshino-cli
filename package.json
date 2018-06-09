@@ -26,7 +26,8 @@
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
     "consola": "^1.4.1",
-    "draftlog": "^1.0.12"
+    "draftlog": "^1.0.12",
+    "fs-extra": "^6.0.1"
   },
   "bin": {
     "yoshino": "./bin/yoshino.js"

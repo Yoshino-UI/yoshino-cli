@@ -3,13 +3,12 @@
 const os = require('os');
 const path = require('path');
 const {execSync} = require('child_process');
-const {existsSync} = require('fs');
+const {hasBackup, backup} = require('../utils/hasBackup');
 const clone = require('./clone');
 const consola = require('consola');
 
 module.exports = () =>{
   const platform = os.platform();
-  const backup = path.resolve(__dirname, '../yoshino');
 
   // delete dir
   const commandMap = {
@@ -23,7 +22,7 @@ module.exports = () =>{
     return;
   }
 
-  if (existsSync(backup)) {
+  if (hasBackup()) {
     try {
       execSync(cmd);
     } catch (error) {
