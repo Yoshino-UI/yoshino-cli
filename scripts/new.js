@@ -19,7 +19,7 @@ module.exports = (component, output) => {
     }
 
     if (fs.existsSync(outputComponentDir)) {
-      consola.error(new Error(`component ${component} has  existed!`));
+      consola.error(`component ${component} has existed!`);
       return;
     }
 
@@ -36,6 +36,6 @@ export {${component}} from 'yoshino';`;
 
     consola.success(`component ${component} has been successfully created!`)
   } else {
-    consola.error(new Error(`component ${component} does not exist!`));
+    consola.error(`component ${component} does not exist!`);
   }
 }
