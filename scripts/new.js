@@ -30,8 +30,9 @@ module.exports = (component, output) => {
     fs.mkdirSync(outputComponentDir);
     fse.copySync(backupComponentStyleDir, outputComponentStyleDir);
 
-    const template = `import './style/index.less;'
-export {${component}} from 'yoshino';`;
+    const template = `import './style/index.less';
+import ${component} from 'yoshino/lib/${component}';
+export default ${component}`;
     fs.writeFileSync(path.resolve(outputComponentDir, './index.tsx'), template);
 
     consola.success(`component ${component} has been successfully created!`)
