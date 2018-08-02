@@ -58,5 +58,9 @@ module.exports = [
   {
     parent: 'Tooltip',
     children: ['Pop'],
+  },
+  {
+    parent: 'Notification',
+    children: ['Alert'],
   }
 ];
