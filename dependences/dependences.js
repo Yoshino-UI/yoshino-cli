@@ -1,7 +1,7 @@
 module.exports = [
   {
     parent: 'Alert',
-    children: ['Icon'],
+    children: ['Icon', 'Transitions'],
   },
   {
     parent: 'AutoComplete',
@@ -29,7 +29,7 @@ module.exports = [
   },
   {
     parent: 'Menu',
-    children: ['Transitions'],
+    children: ['Transitions', 'Icon'],
   },
   {
     parent: 'Modal',
@@ -62,5 +62,9 @@ module.exports = [
   {
     parent: 'Notification',
     children: ['Alert'],
+  },
+  {
+    parent: 'Select',
+    children: ['Icon', 'Pop', 'Transitions'],
   }
 ];
