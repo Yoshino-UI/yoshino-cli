@@ -1,4 +1,4 @@
-const hasComponent = require('../utils/hasComponent');
+const {hasComponent} = require('../utils/component');
 const consola = require('consola');
 const fs = require('fs');
 const fse = require('fs-extra');
@@ -69,7 +69,7 @@ const newScript = (component, output) => {
 
     // 组件是否命中依赖树
     if (hasDependences(component)) {
-      consola.start(`component has other dependences! start parsing!`);
+      consola.start(`component ${component} has other dependences! start parsing!`);
 
       // 解析依赖，生成对应的组件
       parseDependense(component, output);

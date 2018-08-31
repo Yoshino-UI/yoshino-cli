@@ -28,4 +28,11 @@ program
     require(path.resolve(__dirname, '../scripts/new.js'))(component, output);
   })
 
+  program
+  .command('all')
+  .action(() => {
+    const output = path.resolve(process.cwd(), program.output || './components');
+    require(path.resolve(__dirname, '../scripts/all.js'))(output);
+  })
+
 program.parse(process.argv);

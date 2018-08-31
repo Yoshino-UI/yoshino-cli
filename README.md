@@ -38,3 +38,13 @@ you can use `--output` to customize the output directory!
 yoshino new Alert --output mycomponents
 ```
 
+### all
+output all components
+```
+yoshino all
+```
+you can use `--output` to customize the output directory!
+```
+yoshino all --output mycomponents
+```
+
