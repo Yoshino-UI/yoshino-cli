@@ -66,5 +66,13 @@ module.exports = [
   {
     parent: 'Select',
     children: ['Icon', 'Pop', 'Transitions'],
-  }
+  },
+  {
+    parent: 'Message',
+    children: ['Icon', 'Transitions'],
+  },
+  {
+    parent: 'Carousel',
+    children: ['Icon'],
+  },
 ];
