@@ -3,6 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const program = require('commander');
 const package = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../package.json')));
+const {hasBackup} = require('../utils/hasBackup');
+const consola = require('consola');
+const chalk = require('chalk');
+const scripts = chalk.green('yoshino init');
 
 program
   .usage(`\r\n  ${package.description}\r\n  GithubID: ${package.author}\r\n  Repository: ${package.repository.url}`)
@@ -24,6 +28,10 @@ program
 program
   .command('new <component>')
   .action((component) => {
+    if (!hasBackup()) {
+      consola.error(`yoshino-cli is not initialized!Please first use ${scripts} to init`);
+      return;
+    }
     const output = path.resolve(process.cwd(), program.output || './components');
     require(path.resolve(__dirname, '../scripts/new.js'))(component, output);
   })
@@ -31,6 +39,10 @@ program
   program
   .command('all')
   .action(() => {
+    if (!hasBackup()) {
+      consola.error(`yoshino-cli is not initialized!Please first use ${scripts} to init`);
+      return;
+    }
     const output = path.resolve(process.cwd(), program.output || './components');
     require(path.resolve(__dirname, '../scripts/all.js'))(output);
   })
