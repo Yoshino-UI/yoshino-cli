@@ -12,6 +12,7 @@ program
   .usage(`\r\n  ${package.description}\r\n  GithubID: ${package.author}\r\n  Repository: ${package.repository.url}`)
   .option('-o, --output <value>', 'output dirname')
   .option('-t, --theme <value>', 'theme name')
+  .option('-ts, --typescript', 'typescript')
   .version(package.version)
 
 program
@@ -34,6 +35,12 @@ program
       return;
     }
     const output = path.resolve(process.cwd(), program.output || './components');
+    const ts = program.typescript;
+    if (ts) {
+      process.env.YOSHINO_CLI_FORMAT = 'tsx';
+    } else {
+      process.env.YOSHINO_CLI_FORMAT = 'js';
+    }
     require(path.resolve(__dirname, '../scripts/new.js'))(component, output);
   })
 
@@ -46,6 +53,12 @@ program
     }
     const output = path.resolve(process.cwd(), program.output || './components');
     const theme = program.theme;
+    const ts = program.typescript;
+    if (ts) {
+      process.env.YOSHINO_CLI_FORMAT = 'tsx';
+    } else {
+      process.env.YOSHINO_CLI_FORMAT = 'js';
+    }
     require(path.resolve(__dirname, '../scripts/all.js'))(output, theme);
   })
 

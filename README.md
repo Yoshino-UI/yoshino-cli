@@ -51,3 +51,10 @@ output theme, eg: `yoshino-theme-template`
 ```
 yoshino all --output mycomponents --theme yoshino-theme-template
 ```
+
+### -ts
+-ts --typescript
+output `.tsx`,default output `.js`
+```
+yoshino new Button -ts
+```

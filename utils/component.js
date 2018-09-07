@@ -40,7 +40,7 @@ const newComponent = (component, output) => {
   const template = `import './style/index.less';
 import ${component} from 'yoshino/lib/${component}';
 export default ${component}`;
-  fs.writeFileSync(path.resolve(outputComponentDir, './index.tsx'), template);
+  fs.writeFileSync(path.resolve(outputComponentDir, `./index.${process.env.YOSHINO_CLI_FORMAT}`), template);
 
   consola.success(`component ${component} has been successfully created!`);
   return true;
