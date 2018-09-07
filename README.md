@@ -47,4 +47,7 @@ you can use `--output` to customize the output directory!
 ```
 yoshino all --output mycomponents
 ```
-
+output theme, eg: `yoshino-theme-template`
+```
+yoshino all --output mycomponents --theme yoshino-theme-template
+```
