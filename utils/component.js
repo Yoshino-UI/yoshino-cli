@@ -5,8 +5,8 @@ const fse = require('fs-extra');
 const consola = require('consola');
 
 // 获取所有组件名
-const getAllComponents = () => {
-  const files = fs.readdirSync(path.resolve(backup, './components'));
+const getAllComponents = (themesBackup) => {
+  const files = fs.readdirSync(path.resolve(themesBackup || backup, './components'));
   const notComponents = ['template', 'styles', 'utils', 'index.tsx', 'tsconfig.json'];
   const components = new Set(files);
   for (const item of notComponents) {

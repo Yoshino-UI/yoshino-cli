@@ -11,6 +11,7 @@ const scripts = chalk.green('yoshino init');
 program
   .usage(`\r\n  ${package.description}\r\n  GithubID: ${package.author}\r\n  Repository: ${package.repository.url}`)
   .option('-o, --output <value>', 'output dirname')
+  .option('-t, --theme <value>', 'theme name')
   .version(package.version)
 
 program
@@ -44,7 +45,8 @@ program
       return;
     }
     const output = path.resolve(process.cwd(), program.output || './components');
-    require(path.resolve(__dirname, '../scripts/all.js'))(output);
+    const theme = program.theme;
+    require(path.resolve(__dirname, '../scripts/all.js'))(output, theme);
   })
 
 program.parse(process.argv);

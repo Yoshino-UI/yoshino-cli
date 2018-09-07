@@ -5,10 +5,18 @@ const {backup} = require('../utils/hasBackup');
 const {getAllComponents, newComponent} = require('../utils/component');
 const showProcess = require('../utils/showProcess');
 const consola = require('consola');
+const {downloadTheme} = require('../utils/themes');
 
-module.exports = (output) => {
-  const allComponents = getAllComponents();
-  const backupStyleDir =  path.resolve(backup, `./components/styles`);
+module.exports = async (output, theme) => {
+  if (theme) {
+    const res = await downloadTheme(theme);
+    if (!res) {
+      return;
+    }
+  }
+  const themeBackup = theme ? path.resolve(__dirname, `../themes/${theme}`) : undefined;
+  const allComponents = getAllComponents(themeBackup);
+  const backupStyleDir =  path.resolve(themeBackup, `./components/styles`);
   const outputStyleDir = path.resolve(output, './styles');
 
   showProcess.start('starting output all components........');
