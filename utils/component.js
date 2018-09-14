@@ -22,8 +22,8 @@ const hasComponent = (component) => {
 
 
 // 创建单个组件，不解析依赖树
-const newComponent = (component, output) => {
-  const backupComponentDir = path.resolve(backup, `./components/${component}`);
+const newComponent = (component, output, source) => {
+  const backupComponentDir = path.resolve(source || backup, `./components/${component}`);
   const backupComponentStyleDir =  path.resolve(backupComponentDir, `./style`);
   const outputComponentDir = path.resolve(output, component);
   const outputComponentStyleDir = path.resolve(outputComponentDir, './style');
@@ -37,7 +37,7 @@ const newComponent = (component, output) => {
   fs.mkdirSync(outputComponentDir);
   fse.copySync(backupComponentStyleDir, outputComponentStyleDir);
 
-  const template = `import './style/index.less';
+  const template = `import './style/less.js';
 import ${component} from 'yoshino/lib/${component}';
 export default ${component}`;
   fs.writeFileSync(path.resolve(outputComponentDir, `./index.${process.env.YOSHINO_CLI_FORMAT}`), template);

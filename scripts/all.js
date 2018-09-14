@@ -16,7 +16,7 @@ module.exports = async (output, theme) => {
   }
   const themeBackup = theme ? path.resolve(__dirname, `../themes/${theme}`) : undefined;
   const allComponents = getAllComponents(themeBackup);
-  const backupStyleDir =  path.resolve(themeBackup, `./components/styles`);
+  const backupStyleDir =  path.resolve(themeBackup || backup, `./components/styles`);
   const outputStyleDir = path.resolve(output, './styles');
 
   showProcess.start('starting output all components........');
@@ -28,7 +28,7 @@ module.exports = async (output, theme) => {
   
   let newCount = 0;
   for (const component of allComponents) {
-    if (newComponent(component, output)) {
+    if (newComponent(component, output, themeBackup || backup)) {
       newCount++;
     };
   }

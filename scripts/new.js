@@ -31,7 +31,7 @@ const parseDependense = (component, output) => {
   fs.mkdirSync(outputComponentDir);
   fse.copySync(backupComponentStyleDir, outputComponentStyleDir);
 
-  const template = `import './style/index.less';
+  const template = `import './style/less.js';
 import ${component} from 'yoshino/lib/${component}';
 export default ${component}`;
   fs.writeFileSync(path.resolve(outputComponentDir, `./index.${process.env.YOSHINO_CLI_FORMAT}`), template);
@@ -80,7 +80,7 @@ const newScript = (component, output) => {
       fs.mkdirSync(outputComponentDir);
       fse.copySync(backupComponentStyleDir, outputComponentStyleDir);
 
-      const template = `import './style/index.less';
+      const template = `import './style/less.js';
 import ${component} from 'yoshino/lib/${component}';
 export default ${component}`;
       fs.writeFileSync(path.resolve(outputComponentDir, `./index.${process.env.YOSHINO_CLI_FORMAT}`), template);
